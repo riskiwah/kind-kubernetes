@@ -24,6 +24,14 @@ Targets:
   delete-cluster        Delete cluster kind
 ```
 
+## Istio Operator
+```bash
+$ istioctl operator init
+
+$ kubectl create ns istio-system
+
+$ kubectl apply -f istio/istioperator.yaml
+```
 ## License
 
 I'm tired of this kind of bullshit. I, hereby, choose WTFPL (Do What The Fuck Yo

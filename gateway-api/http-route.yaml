@@ -1,0 +1,11 @@
+kind: HTTPRoute
+apiVersion: networking.x-k8s.io/v1alpha1
+metadata:
+  name: nginx-debug-route
+  labels:
+    gateway: this-is-gateway
+spec:
+  rules:
+  - forwardTo:
+    - serviceName: nginx-debug-svc
+      port: 80 
