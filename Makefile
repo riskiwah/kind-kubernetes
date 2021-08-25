@@ -1,5 +1,5 @@
 CLUSTER_NAME="kind-kubernetes-dev"
-CLUSTER_VERSION="kindest/node:v1.19.7"
+CLUSTER_VERSION="kindest/node:v1.19.11"
 .DEFAULT_GOAL := help
 .PHONY: help
 help:  ## Show help
@@ -8,8 +8,8 @@ help:  ## Show help
 start-kind-ingress:  ## Create kind
 	@echo "## Start kind cluster ##"
 	@kind create cluster --name $(CLUSTER_NAME) --config config/config-kind-ingress.yaml --image $(CLUSTER_VERSION)
-	# @echo "## also install nginx-ingress ##"
-	# @kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/static/provider/kind/deploy.yaml
+	@echo "## also install nginx-ingress ##"
+	@kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/static/provider/kind/deploy.yaml
 
 start-nodeport:  ## Create kind with nodeport :30007
 	@echo "## Start kind cluster with nodeport :3007 ##"
