@@ -1,0 +1,25 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: debug
+  namespace: dev
+spec:
+  containers:
+  - image: bibinwilson/docker-kubectl:latest
+    name: kubectl-deb
+  serviceAccountName: pod-dev
+
+# curl -s \
+#   --cacert /var/run/secrets/kubernetes.io/serviceaccount/ca.crt \
+#   -H "Authorization: Bearer $(cat /var/run/secrets/kubernetes.io/serviceaccount/token)" \
+#   -H "Content-Type: application/json" \
+#   -d "{"apiVersion":"v1","kind":"Pod","metadata":{"name":"nginx","namespace":"default"},"spec":{"containers":[{"name":"nginx","image":"nginx","ports":[{"containerPort":80}]}]}}" \
+#   https://kubernetes.default.svc/api/v1/namespaces/$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace)/pods
+
+
+# curl -s \
+#   --cacert /var/run/secrets/kubernetes.io/serviceaccount/ca.crt \
+#   -H "Authorization: Bearer $(cat /var/run/secrets/kubernetes.io/serviceaccount/token)" \
+#   -H "Content-Type: application/json" \
+#   https://kubernetes.default.svc/api/v1/namespaces/$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace)/pods
